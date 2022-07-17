@@ -1,0 +1,26 @@
+pimcore:
+    assets:
+        image:
+            thumbnails:
+                definitions:
+                    Post:
+                        items:
+                            -
+                                method: scaleByHeight
+                                arguments:
+                                    height: 250
+                                    forceResize: false
+                        medias: {  }
+                        name: Post
+                        description: Thumbnail
+                        group: ''
+                        format: SOURCE
+                        quality: 85
+                        highResolution: 0.0
+                        preserveColor: false
+                        preserveMetaData: false
+                        rasterizeSVG: false
+                        downloadable: false
+                        modificationDate: 1658071098
+                        creationDate: 1658070360
+                        preserveAnimation: false

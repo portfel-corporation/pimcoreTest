@@ -1,0 +1,39 @@
+{% extends "layout/app.html.twig" %}
+{% block CUSTOM_CSS %}
+
+{% endblock %}
+
+{% block CONTENT_MID %}
+    <!-- BLOG SINGLE START -->
+    <div class="container" style="margin-top: 150px !important;margin-bottom: 150px !important;">
+        <article class="blog-post">
+            <h2 class="blog-post-title mb-1">{{ data.title }}</h2>
+            <p class="blog-post-meta">{{ data.date }} <span>By: {{ data.author }}</span></p>
+            <img src="{{ data.image_url }}" width="100%" alt="{{ data.title }} image">
+            <p>{{ data.content|raw }}</p>
+        </article>
+    </div>
+    <!-- BLOG CARDS END -->
+
+    {% if data is defined and data is not empty %}
+        {% if data.relatedPosts is not empty %}
+            <div class="container" style="margin-top: 50px !important;margin-bottom: 50px !important;">
+            <h3>Related Articles</h3>
+                <hr>
+                        <div class="row">
+                            {% for post in data.relatedPosts %}
+                                {% include 'blog/blog_post.html.twig' with {'data': post} %}
+                            {% endfor %}
+                        </div>
+
+                <hr>
+            </div>
+        {% endif %}
+    {% endif %}
+
+{% endblock %}
+
+{% block CUSTOM_JS %}
+
+{% endblock %}
+

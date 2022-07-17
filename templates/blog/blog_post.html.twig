@@ -1,0 +1,27 @@
+
+{% if data and data is not empty %}
+        <div class="col-md-6 flex">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <div class="d-inline-flex">
+                    {% for cat in data.cats %}
+                        <a href="{{ cat.slug }}" target="_self" id="{{ cat.slug }}" style="margin-right: 5px !important;"><span class="d-inline-block pr-2 text-success">{{ cat.name }}</span></a>
+                    {% endfor %}
+                    </div>
+
+                    <h3 class="mb-0">{{ data.title }}</h3>
+                    <div class="mb-1 text-muted">{{ data.date }}</div>
+                    <p class="mb-auto" style="max-height:50px; text-overflow: ellipsis; overflow: hidden; ">{{ data.short }}</p>
+                    <a href="{{ data.slug }}" class="">Continue reading</a>
+                    <p style="font-size: 12px; color: #cccccc;">Author: {{ data.author }}</i></p>
+                </div>
+                <div class="col-auto d-none d-lg-block" style="max-width: 200px !important;">
+                    {{ data.image_thumb|raw }}
+{#                    <img src="{{ data.image_url }}" class="card-img-top" width="200" height="250" alt="...">#}
+                </div>
+
+            </div>
+        </div>
+
+{% endif %}
+

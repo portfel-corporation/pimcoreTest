@@ -1,0 +1,42 @@
+<footer class="container d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top mt-auto">
+    <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+            <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
+        </a>
+        <span class="text-muted"> {{ pimcore_input("copyright") }}</span>
+    </div>
+
+    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        {% for i in pimcore_block('footerLink').iterator %}
+            {% if editmode %}
+                <li>{{ pimcore_link('footerLink', {'class': "special-link-class"}) }}</li>
+                {% else %}
+                {% set urlData = pimcore_link('footerLink') %}
+                    <li class="ms-3">
+                        <a
+                           class="{{ urlData.getClass() }}"
+                           href="{{ urlData.getHref() }}"
+                           target="{{ urlData.getTarget() ?? "_self" }}"
+                        >
+                            {{ urlData.getText() | raw }}
+                        </a>
+                    </li>
+            {% endif %}
+
+        {% endfor %}
+
+    </ul>
+    <div class="container-fluid">
+        <section id="marked-content">
+            {{  pimcore_wysiwyg("footerContentW", {
+                "height": 200,
+                "toolbarGroups": [
+                    {
+                        "name": 'basicstyles',
+                        "groups": [ 'basicstyles', 'list', "links"]
+                    }
+                ]})
+            }}
+        </section>
+    </div>
+</footer>

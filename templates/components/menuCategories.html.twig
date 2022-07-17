@@ -1,0 +1,17 @@
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle"
+       id="navDrop_2215"
+       aria-expanded="false"
+       role="button"
+       data-bs-toggle="dropdown"
+       aria-haspopup="true"
+       href="#">Categories</a>
+
+    <ul class="dropdown-menu" aria-labelledby="navDrop_2215">
+        {% if data is defined and data is not empty %}
+            {% for cat in data %}
+                <li ><a  class="dropdown-item" href="{{ cat.slug }}">{{ cat.name }}</a></li>
+            {% endfor %}
+        {% endif %}
+    </ul>
+</li>

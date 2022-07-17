@@ -1,0 +1,26 @@
+pimcore:
+    assets:
+        image:
+            thumbnails:
+                definitions:
+                    staticPageImage:
+                        items:
+                            -
+                                method: scaleByWidth
+                                arguments:
+                                    width: 1140
+                                    forceResize: true
+                        medias: {  }
+                        name: staticPageImage
+                        description: ''
+                        group: ''
+                        format: SOURCE
+                        quality: 85
+                        highResolution: 0.0
+                        preserveColor: false
+                        preserveMetaData: false
+                        rasterizeSVG: false
+                        downloadable: false
+                        modificationDate: 1658078247
+                        creationDate: 1658078175
+                        preserveAnimation: false
