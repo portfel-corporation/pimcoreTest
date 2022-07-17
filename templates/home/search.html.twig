@@ -14,13 +14,10 @@
             {% endfor %}
         {% else %}
             <h4>There are no results for that search keyword, try to search again with different one</h4>
-            <form class="d-flex" method="post" action="/search">
-                <input type="hidden" name="csrf" value="{{ csrf_token('csrf') }}">
-                <input class="form-control me-2" type="search" name="keyword" placeholder="Search blog posts" aria-label="Search blog posts">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+            {% include 'components/search.html.twig' %}
         {% endif %}
         </div>
+        {% include 'components/pagination.html.twig' %}
     </div>
 
 

@@ -24,11 +24,7 @@
                 <h1>Requested page does not contain data</h1>
                 <hr style="margin-bottom: 100px !important;">
                 <h2>Try search</h2>
-                <form class="d-flex" method="post" action="/search">
-                    <input type="hidden" name="csrf" value="{{ csrf_token('csrf') }}">
-                    <input class="form-control me-2" type="search" name="keyword" placeholder="Search blog posts" aria-label="Search blog posts">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+                {% include 'components/search.html.twig' %}
                 <hr style="margin:   100px 0 100px 0 !important;">
                 <h2>Find By Category</h2>
                 {{ pimcore_inc(document.getProperty('cats')) }}
@@ -36,7 +32,8 @@
 
         {% endif %}
 
-
+        {% include 'components/pagination.html.twig' %}
+    </div>
 {% endblock %}
 
 {% block CUSTOM_JS %}

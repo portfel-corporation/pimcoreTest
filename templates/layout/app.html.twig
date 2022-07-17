@@ -125,11 +125,7 @@
                     {% endfor %}
                     {{ pimcore_inc(document.getProperty('menucats')) }}
                 </ul>
-                <form class="d-flex" method="post" action="/search">
-                    <input type="hidden" name="csrf" value="{{ csrf_token('csrf') }}">
-                    <input class="form-control me-2" type="search" name="keyword" placeholder="Search blog posts" aria-label="Search blog posts">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+                {% include 'components/search.html.twig' %}
             </div>
         </div>
     </nav>
